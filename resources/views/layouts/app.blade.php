@@ -28,7 +28,9 @@
         @livewire('navbar')
         <main class="py-4">
             @yield('content')
+            @if(isset($slot))
             {{ $slot }}
+            @endif
         </main>
 
         @include('layouts.footer')

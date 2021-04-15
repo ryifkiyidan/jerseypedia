@@ -4,7 +4,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('home') }}" class="text-dark">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">List Jersey</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ $title }}</li>
                 </ol>
             </nav>
         </div>
@@ -12,7 +12,7 @@
 
     <div class="row">
         <div class="col-md-9">
-            <h2>List <b>Jersey</b></h2>
+            <h2>{{ $title }}</h2>
         </div>
         <div class="col-md-3">
             <div class="input-group mb-3">
@@ -41,7 +41,7 @@
                         </div>
                         <div class="row mt-2">
                             <div class="col-md-12">
-                                <a href="#" class="btn btn-dark btn-block">Detail</a>
+                                <a href="#" class="btn btn-dark btn-block"><i class="fad fa-eye mr-1"></i> Detail</a>
                             </div>
                         </div>
                     </div>
