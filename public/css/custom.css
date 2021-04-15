@@ -1,5 +1,6 @@
 body {
     font-family: "Montserrat", sans-serif;
+    background-color: white;
 }
 
 .banner img {
@@ -15,6 +16,20 @@ body {
     border-radius: 1em;
 }
 
-.best-products .card {
+.products .card {
     border-radius: 1em;
+}
+
+.breadcrumb {
+    background-color: transparent;
+    padding: 0;
+}
+
+.breadcrumb .active {
+    font-weight: bold;
+    color: black;
+}
+
+.btn-dark {
+    border-radius: 0.625em;
 }

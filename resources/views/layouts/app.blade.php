@@ -34,6 +34,7 @@
         @include('layouts.footer')
     </div>
     @livewireScripts
+    <script src="{{ asset('js/fontawesome.js') }}"></script>
 </body>
 
 </html>
