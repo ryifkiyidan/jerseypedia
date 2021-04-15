@@ -10,7 +10,7 @@
         <div class="row mt-4">
             @foreach ($ligas as $liga)
             <div class="col">
-                <a href="{{ route('products.liga', $liga->id) }}">
+                <a href="{{ route('products.liga', $liga->id) }}" data-turbolinks="false">
                     <div class="card shadow">
                         <div class="card-body text-center">
                             <img src="{{ url('assets/liga') }}/{{ $liga->gambar }}" alt="liga" class="img-fluid">
