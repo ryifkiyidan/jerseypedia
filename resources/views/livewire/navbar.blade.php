@@ -30,13 +30,16 @@ use Illuminate\Support\Facades\Route;
                         <a href="{{ route('products') }}" class="dropdown-item">Semua Liga</a>
                     </div>
                 </li>
+                @if (Auth::user())
                 <li class="nav-item {{ (strpos(Route::currentRouteName(), 'history') === 0) ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('history') }}"><?= (strpos(Route::currentRouteName(), 'history') === 0) ? '<b>History</b>' : 'History'; ?></a>
                 </li>
+                @endif
             </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
+                @if (Auth::user())
                 <li class="nav-item {{ (strpos(Route::currentRouteName(), 'keranjang') === 0 || strpos(Route::currentRouteName(), 'checkout') === 0) ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('keranjang') }}">
                         <?= (strpos(Route::currentRouteName(), 'keranjang') === 0 || strpos(Route::currentRouteName(), 'checkout') === 0) ? '<b>Keranjang</b>' : 'Keranjang'; ?>
@@ -46,6 +49,7 @@ use Illuminate\Support\Facades\Route;
                         @endif
                     </a>
                 </li>
+                @endif
                 <!-- Authentication Links -->
                 @guest
                 @if (Route::has('login'))
@@ -67,6 +71,7 @@ use Illuminate\Support\Facades\Route;
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <i class="fad fa-sign-out"></i>
                             {{ __('Logout') }}
                         </a>
 

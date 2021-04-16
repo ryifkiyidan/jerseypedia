@@ -22,8 +22,9 @@
 
     <div class="row mt-4">
         <div class="col">
+            @if (!$pesanans->isEmpty())
             <div class="table-responsive">
-                <table class="table table-hover text-center">
+                <table class="table text-center">
                     <thead>
                         <tr>
                             <td>No.</td>
@@ -36,7 +37,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ( $pesanans as $pesanan )
+                        @foreach ( $pesanans as $pesanan )
                         <tr>
                             <td>{{ $loop->index+1 }}</td>
                             <td>{{ $pesanan->created_at }}</td>
@@ -53,18 +54,21 @@
                             <td align="right"><b>Rp{{ number_format($pesanan->total_harga) }}</b></td>
                             <td align="right"><b>Rp{{ number_format($pesanan->total_harga + $pesanan->kode_unik) }}</b></td>
                         </tr>
-                        @empty
-                        <tr class="text-center">
-                            <td colspan="7" class="text-secondary">Data masih kosong nih ka, <a href="{{ route('home') }}"><b>Yuk Belanja!</b></a></td>
-                        </tr>
-                        @endforelse
+                        @endforeach
                     </tbody>
                 </table>
             </div>
+            @else
+            <div class="container text-center my-5">
+                <img src="{{ asset('assets/undraw/empty.svg') }}" alt="empty" class="img-fluid mb-5" width="500">
+                <br>
+                History masih kosong nih ka, <a href="{{ route('home') }}"><b>Yuk Belanja!</b></a>
+            </div>
+            @endif
         </div>
     </div>
 
-    @if (empty($pesanans))
+    @if (!$pesanans->isEmpty())
     <div class="row mt-5">
         <div class="col">
             <div class="card shadow">

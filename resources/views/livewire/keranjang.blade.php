@@ -22,6 +22,7 @@
 
     <div class="row">
         <div class="col">
+            @if (!empty($pesanan_details))
             <div class="table-responsive">
                 <table class="table text-center">
                     <thead>
@@ -38,7 +39,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ( $pesanan_details as $pesanan_detail )
+                        @foreach ( $pesanan_details as $pesanan_detail )
                         <tr>
                             <td>{{ $loop->index+1 }}</td>
                             <td>
@@ -67,12 +68,7 @@
                                 <a wire:click="destroy({{ $pesanan_detail->id }})" class="btn btn-outline-danger btn-sm border-0"><i class="fas fa-trash"></i></a>
                             </td>
                         </tr>
-                        @empty
-                        <tr class="text-center">
-                            <td colspan="8" class="text-secondary">Data Kosong</td>
-                        </tr>
-                        @endforelse
-                        @if (!empty($pesanan))
+                        @endforeach
                         <tr>
                             <td colspan="7" align="right"><b>Total Harga : </b></td>
                             <td align="right"><b>Rp{{ number_format($pesanan->total_harga) }}</b></td>
@@ -97,10 +93,16 @@
                                 </a>
                             </td>
                         </tr>
-                        @endif
                     </tbody>
                 </table>
             </div>
+            @else
+            <div class="container text-center my-5">
+                <img src="{{ asset('assets/undraw/empty_cart.svg') }}" alt="empty" class="img-fluid mb-5" width="500">
+                <br>
+                Keranjang masih kosong nih ka, <a href="{{ route('home') }}"><b>Yuk Belanja!</b></a>
+            </div>
+            @endif
         </div>
     </div>
 </div>
