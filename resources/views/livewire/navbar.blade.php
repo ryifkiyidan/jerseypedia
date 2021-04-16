@@ -30,7 +30,7 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ route('keranjang') }}">
                         Keranjang
                         <i class="fad fa-shopping-bag"></i>
                         @if ($jumlah_pesanan > 0)

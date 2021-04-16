@@ -34,10 +34,12 @@ class ProductDetail extends Component
         }
 
         // Menghitung total harga
-        if (!empty($this->nama)) {
-            $total_harga = $this->jumlah_pesanan * $this->product->harga + $this->product->harga_nameset;
+        if (!empty($this->nama) && $this->jumlah_pesanan == 1) {
+            $total_harga = $this->jumlah_pesanan * ($this->product->harga + $this->product->harga_nameset);
         } else {
             $total_harga = $this->jumlah_pesanan * $this->product->harga;
+            $this->nama = null;
+            $this->nomor = null;
         }
 
         //Cek apakah user punya data pesanan sebelumnya yg statusnya 0
@@ -62,7 +64,7 @@ class ProductDetail extends Component
             'product_id'  => $this->product->id,
             'pesanan_id' => $pesanan->id,
             'jumlah_pesanan' => $this->jumlah_pesanan,
-            'nameset' => $this->nama ? true : false,
+            'namaset' => $this->nama ? true : false,
             'nama' => $this->nama,
             'nomor' => $this->nomor,
             'total_harga' => $total_harga,
@@ -71,9 +73,9 @@ class ProductDetail extends Component
         $this->emit('masukKeranjang');
 
         session()->flash('message', 'Sukses masuk keranjang');
-        $this->jumlah_pesanan = '';
-        $this->nama = '';
-        $this->nomor = '';
+        $this->jumlah_pesanan = null;
+        $this->nama = null;
+        $this->nomor = null;
 
         return redirect()->back();
     }

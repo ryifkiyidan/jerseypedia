@@ -62,7 +62,7 @@
                                 <td>Jumlah</td>
                                 <td>:</td>
                                 <td>
-                                    <input id="jumlah_pesanan" type="number" class="form-control @error('jumlah_pesanan') is-invalid @enderror" wire:model="jumlah_pesanan" value="{{ old('jumlah_pesanan') }}" required>
+                                    <input id="jumlah_pesanan" type="number" class="form-control @error('jumlah_pesanan') is-invalid @enderror" wire:model="jumlah_pesanan" value="{{ old('jumlah_pesanan') }}" required autofocus>
                                     @error('jumlah_pesanan')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
