@@ -1,3 +1,8 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+?>
 <nav class="navbar navbar-expand-md navbar-light bg-white">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
@@ -10,12 +15,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">Home</a>
+                <li class="nav-item {{ (strpos(Route::currentRouteName(), 'home') === 0) ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('home') }}"><?= (strpos(Route::currentRouteName(), 'home') === 0) ? '<b>Home</b>' : 'Home'; ?></a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown {{ (strpos(Route::currentRouteName(), 'products') === 0) ? 'active' : '' }}">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        List Jersey
+                        <?= (strpos(Route::currentRouteName(), 'products') === 0) ? '<b>List Jersey</b>' : 'List Jersey'; ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         @foreach ($ligas as $liga)
@@ -25,16 +30,16 @@
                         <a href="{{ route('products') }}" class="dropdown-item">Semua Liga</a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('history') }}">History</a>
+                <li class="nav-item {{ (strpos(Route::currentRouteName(), 'history') === 0) ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('history') }}"><?= (strpos(Route::currentRouteName(), 'history') === 0) ? '<b>History</b>' : 'History'; ?></a>
                 </li>
             </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
+                <li class="nav-item {{ (strpos(Route::currentRouteName(), 'keranjang') === 0 || strpos(Route::currentRouteName(), 'checkout') === 0) ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('keranjang') }}">
-                        Keranjang
+                        <?= (strpos(Route::currentRouteName(), 'keranjang') === 0 || strpos(Route::currentRouteName(), 'checkout') === 0) ? '<b>Keranjang</b>' : 'Keranjang'; ?>
                         <i class="fad fa-shopping-bag"></i>
                         @if ($jumlah_pesanan > 0)
                         <span class="badge badge-danger">{{ $jumlah_pesanan }}</span>
@@ -44,14 +49,14 @@
                 <!-- Authentication Links -->
                 @guest
                 @if (Route::has('login'))
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                <li class="nav-item {{ (strpos(Route::currentRouteName(), 'login') === 0) ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('login') }}"><?= (strpos(Route::currentRouteName(), 'login') === 0) ? '<b>Login</b>' : 'Login'; ?></a>
                 </li>
                 @endif
 
                 @if (Route::has('register'))
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                <li class="nav-item {{ (strpos(Route::currentRouteName(), 'register') === 0) ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('register') }}"><?= (strpos(Route::currentRouteName(), 'register') === 0) ? '<b>Register</b>' : 'Register'; ?></a>
                 </li>
                 @endif
                 @else
