@@ -55,7 +55,7 @@
                         </tr>
                         @empty
                         <tr class="text-center">
-                            <td colspan="7" class="text-secondary">Data Kosong</td>
+                            <td colspan="7" class="text-secondary">Data masih kosong nih ka, <a href="{{ route('home') }}"><b>Yuk Belanja!</b></a></td>
                         </tr>
                         @endforelse
                     </tbody>
@@ -64,6 +64,7 @@
         </div>
     </div>
 
+    @if (empty($pesanans))
     <div class="row mt-5">
         <div class="col">
             <div class="card shadow">
@@ -82,4 +83,5 @@
             </div>
         </div>
     </div>
+    @endif
 </div>
