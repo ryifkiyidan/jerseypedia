@@ -33,3 +33,9 @@ body {
 .btn-dark {
     border-radius: 0.625em;
 }
+
+.gambar-product {
+    background-color: #f1f1f1;
+    border-width: 0;
+    border-radius: 1.25em;
+}
