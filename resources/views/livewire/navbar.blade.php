@@ -25,6 +25,9 @@
                         <a href="{{ route('products') }}" class="dropdown-item">Semua Liga</a>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('history') }}">History</a>
+                </li>
             </ul>
 
             <!-- Right Side Of Navbar -->
