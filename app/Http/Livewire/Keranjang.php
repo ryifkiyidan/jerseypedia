@@ -13,6 +13,13 @@ class Keranjang extends Component
     protected $pesanan;
     protected $pesanan_details = [];
 
+    public function mount()
+    {
+        if (!Auth::user()) {
+            return redirect()->route('login');
+        }
+    }
+
     public function destroy($id)
     {
         $pesanan_detail = PesananDetail::find($id);
