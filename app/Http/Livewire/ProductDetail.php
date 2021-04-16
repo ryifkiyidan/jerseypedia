@@ -68,7 +68,12 @@ class ProductDetail extends Component
             'total_harga' => $total_harga,
         ]);
 
+        $this->emit('masukKeranjang');
+
         session()->flash('message', 'Sukses masuk keranjang');
+        $this->jumlah_pesanan = '';
+        $this->nama = '';
+        $this->nomor = '';
 
         return redirect()->back();
     }

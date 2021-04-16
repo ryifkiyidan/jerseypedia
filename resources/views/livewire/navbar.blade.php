@@ -29,6 +29,15 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        Keranjang
+                        <i class="fad fa-shopping-bag"></i>
+                        @if ($jumlah_pesanan > 0)
+                        <span class="badge badge-danger">{{ $jumlah_pesanan }}</span>
+                        @endif
+                    </a>
+                </li>
                 <!-- Authentication Links -->
                 @guest
                 @if (Route::has('login'))
